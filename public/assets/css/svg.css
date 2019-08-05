@@ -1,0 +1,23 @@
+.st0,.st5,.st6{fill:none;stroke:#455CA9;stroke-miterlimit:10;stroke-dasharray:3950;
+    sroke-dashoffset:0;
+    -webkit-animation:dash 10s ease-in-out forwards ;
+    animation:dash 10s ease-in-out forwards ;}
+.st1,.st3,.st4,.st7{fill:none;stroke:#EF4848;stroke-miterlimit:10;
+    stroke-dasharray:3950;
+    sroke-dashoffset:0;
+    -webkit-animation:dash 10s ease-in-out forwards ;
+    animation:dash 10s ease-in-out forwards ;}
+#plugin,#up_media,#transc_process,#compl_tick{
+    height:250px;
+    width:300px;
+}
+
+@-webkit-keyframes dash{
+    from {
+        stroke-dashoffset:3950;
+    }
+    to{
+
+        stroke-dashoffset:0;
+    }
+}

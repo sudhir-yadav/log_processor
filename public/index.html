@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Easy electro</title>
+
+    <!-- Fonts block start -->
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    <!-- Fonts block end -->
+
+    <!-- Styles block start -->
+        <link href="assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/css/app.css" rel="stylesheet">
+        <link href="assets/css/animate.css" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/line-awesome.min.css">
+    <!-- Styles block end -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <style>
+        table{
+            font-size:.85rem;
+        }
+        .nav-link{
+            color:#8a8888 !important;
+        }
+        th{
+            border:none !important;
+        }
+        th {
+            padding:10px 0px !important;
+            font-size:.9rem !important;
+        }
+        .table .text {
+        position: relative;
+        }
+
+       .text span {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        position: absolute;
+        width: 100%;
+        }
+
+        .text:before {
+        content: '';
+        display: inline-block;
+        }
+        .badge{
+            font-size:13px;
+        }
+        .app-utility-nav .nav .nav-item .nav-link span {
+            font-size: .7em;
+            display: block;
+        }
+        .log-tabs{
+            height:45px;
+        }
+        .log-tabs-element{
+            display:block;
+        }
+        .log-tabs-element li{
+            display: inline-block;
+            padding: 10px;
+            float: left;
+            text-align: center;
+            min-width: 180px;
+        }
+        .log-tabs-element li:hover{
+            cursor: pointer;
+        }
+        .log-tabs-element .active{
+            background: #f0f7ff;
+        }
+
+    </style>
+
+</head>
+<body id="app">
+
+    <!-- Application below this -->
+        <div id="main-app" >
+
+            <!-- Header element below this -->
+                <header id="header_ele" class="d-none">
+                </header>
+            <!-- Header element above this -->
+
+            <!-- App base of application  -->
+                <main id="app_base" class="h-100" role="main">
+
+                    <!-- Side nav sub menu below this -->
+                    <nav id="" class="h-100 float-left position-relative" style="width:250px;background: #f7f7f7;border-right: 1px solid #dadada;">
+                        <div class="p-3 text-center border-bottom">
+                            <span class="h5 font-weight-bold text-capitalize">Sys Admin</span> 
+                        </div>
+                        <div class="p-3 position-relative">
+                            <ul class="sidebar-site-list nav-site-list animated fadeIn">
+                                <li class="active-item  tada">
+                                    <i class="la la-wordpress"></i> Production 
+                                    <i class="la la-arrow-circle-right float-right" ></i>
+                                </li>
+                                <li class=" tada"><i class="la la-wordpress"></i> Staging  </li>
+                                <li class="tada"><i class="la la-wordpress"></i> Development </li>
+                            </ul>
+                        </div>
+                        <div class="position-absolute fixed-bottom w-100 border-top p-3 z-inde text-center">
+                            <a class="small" href="https://sudhir.dev">sudhir.dev &copy; 2019</a>
+                        </div>
+                    </nav>
+                    <!-- Side nav sub menu above this -->
+                    <div class="h-100" style="margin-left:250px;">
+                        <div class="h-100 float-left">
+                            <nav class="sidebar h-100 float-left app-utility-nav border-right">
+                                <ul class="nav">
+
+                                    <li class="nav-item">
+                                        <a class="nav-link " href="#">
+                                            <i class="la la-server animated tada"></i>
+                                            <span>Logs</span>
+                                        </a>
+                                    </li>
+                                </ul>
+        
+                                <ul class="nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            <i class="la la-slack animated tada"></i>
+                                            <span>Slack</span> 
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class='container-fluid p-0 h-100'>
+                            <div class="row border-bottom">
+                                <div class="col-12 p-2">
+                                    <div class="row">
+                                        <div class="col-4 p-2">
+                                            <div class="website-logo-brand" >
+                                                    <span class="">A</span>
+                                            </div>
+                                            <span class="h2">Apogee</span>
+                                            <span class="d-block" style="color: #a0a0a0;">http://chia2.orcatv.com</span>
+                                        </div>
+                                        <div class="col-3">
+
+                                        </div>
+                                        <div class="col-5">
+                                            <div class="row">
+                                                    <div class="col-4 text-center p-2">
+                                                        <span id="server_err" class="h2 thin"> 00</span>
+                                                        <span class="d-block"> Server (5xx)</span>
+                                                    </div>
+                                                    <div class="col-4 text-center p-2">
+                                                        
+                                                        <span id="client_err" class="h2 thin"> 00</span>
+                                                        <span class="d-block"> Client (4xx) </span>
+                                                    </div>
+                                                    <div class="col-4 text-center p-2">
+                                                        
+                                                        <span id="success_info" class="h2 thin"> 00</span>
+                                                        <span class="d-block"> Success (2xx)</span>
+                                                    </div>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                </div>   
+                           </div>
+                           <div class="row">
+                               <div class="col-12 d-block p-0 m-0 log-tabs border-bottom">
+                                    <ul class="log-tabs-element m-0 p-0 d-block text-uppercase">
+                                        <li class="active">Access log</li>
+                                        <li>Error log</li>
+                                        <li>Debug log</li>
+                                        <!-- <li class="float-right"> <input type="text"/> </li> -->
+                                    </ul>
+                               </div>
+                           </div>
+                           <div class="row h-100">
+                               <div class="col-12 p-0 h-100 " >
+                                    <div class="scrollable-area h-100" style="overflow-x:hidden;height:calc(100% - 95px) !important;">
+                                            <table id="main_nginx_log_tbl" class="table table-bordered table-sm" style="border:none;" cellspacing="0"
+                                            width="100%">
+                                                <thead>
+                                                        <tr>
+                                                            <th class="th-sm"></th>
+                                                            <th class="th-sm">IP Address</th>
+                                                            <th class="th-sm text" style="width:12%;"><span data-toggle='tooltip' data-html="true" data-placement='top' title="Time : Time of Request.">Time</span></th>
+                                                            <th class="th-sm">Request</th>
+                                                            <th class="th-sm text-center"> Status</th>
+                                                            <th class="th-sm text"><span data-toggle='tooltip' data-placement='top' title="Byte sent : The total byte send as response.">Byte sent</span></th>
+                                                            <th class="th-sm" style="width:20%;">User Agent</th>
+                                                            <th class="th-sm text"><span data-toggle='tooltip' data-placement='top' title="Request time : The total time spent processing a request.">Request time</span></th>
+                                                            <th class="th-sm text" data-toggle='tooltip' data-placement='top' title="Upstream header connect: The time spent on establishing a connection with an upstream server." ><span>Upstream header connect</span> </th>
+                                                            <th class="th-sm text" data-toggle='tooltip' data-placement='top' title="Upstream header time: The time between establishing a connection and receiving the first byte of the response header from the upstream."><span>Upstream header sent</span></th>
+                                                            <th class="th-sm text" data-toggle='tooltip' data-placement='top' title="Upstream response time: The time between establishing a connection and receiving the last byte of the response body from the upstream server."><span>Upstream response sent</span></th>
+                                                        </tr>
+                                                </thead>
+                                                <tbody>
+                                                 
+                                                </tbody>
+                                            </table>
+                                    </div>
+                                </div>
+                           </div>
+                       </div>
+                    </div>   
+
+                </main>
+            <!-- App base of application  --> 
+
+        </div>
+    <!-- Application above this -->
+ 
+    <!--Footer scripts below this -->
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+
+            var server_err = 0;
+            var client_err = 0;
+            var success_res = 0;
+
+            $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip();
+                if( localStorage.getItem("access_log") === null ){
+                    localStorage.setItem("access_log","[]");
+                } else {
+                    var curr_data = JSON.parse( localStorage.getItem("access_log") );
+                    
+                    if(curr_data.length > 0) {
+                        $tble_block = "";
+                        for(i = (curr_data.length - 1);i >= 0;i--){
+                            $tble_block += tablerow( curr_data[i] );
+                            if( curr_data[i]['status'] >=200 && curr_data[i]['status'] < 300 )
+                            {
+                                success_res += 1;
+                            }
+                            
+                            if( curr_data[i]['status'] >=400 && curr_data[i]['status'] < 500 )
+                            {
+                                client_err += 1;
+                            }
+                            
+                            if( curr_data[i]['status'] >=500 && curr_data[i]['status'] < 600 )
+                            {
+                                server_err += 1;
+                            }
+                        }
+                        $($tble_block).prependTo("#main_nginx_log_tbl > tbody");
+                        display_header_info();
+                    }
+                } 
+            });
+
+            var socket = io();
+            socket.on('file-change', function(data){
+                var curr_data = JSON.parse( localStorage.getItem("access_log") );
+                data["number"] = (curr_data.length + 1);
+                curr_data.push( data );
+                localStorage.setItem("access_log", JSON.stringify(curr_data));
+                $tble_block = tablerow(data);
+                $($tble_block).prependTo("#main_nginx_log_tbl > tbody"); 
+                if( data['status'] >=200 && data['status'] < 300 )
+                {
+                    success_res += 1;
+                }
+                
+                if( data['status'] >=400 && data['status'] < 500 )
+                {
+                    client_err += 1;
+                }
+                
+                if( data['status'] >=500 && data['status'] < 600 )
+                {
+                    server_err += 1;
+                }
+
+                display_header_info();
+            });
+
+            function display_header_info(){
+                $('#server_err').html( server_err );
+                $('#client_err').html( client_err );
+                $('#success_info').html( success_res );
+            }
+
+            function tablerow( msg ){
+
+                var curr_data = JSON.parse( localStorage.getItem("access_log") );
+                $tble_block = "<tr>";
+                $tble_block += "<td>"+msg.number+"</td>";
+                $tble_block += "<td>"+msg.remote_addr+"</td>";
+                $tble_block += "<td class='text'><span data-toggle='tooltip' data-placement='top' title='"+msg.time_local+"'>"+msg.time_local+"</td>";
+                $tble_block += "<td>"+msg.request+"</td>";
+                var badge = "badge-secondary";
+                
+                if( msg.status >=200 && msg.status < 300 )
+                {
+                    badge = "badge-success";
+                }else if( msg.status >=400 && msg.status < 500 )
+                {
+                    badge = "badge-warning";
+                }
+                else if( msg.status >=500 && msg.status < 600 )
+                {
+                    badge = "badge-danger";
+                }else {
+                    badge = "badge-secondary";
+                }
+
+                $tble_block += "<td class='text-center' ><span class='badge "+badge+"'>"+msg.status+"</span></td>";
+                $tble_block += "<td>"+msg.body_bytes_sent+"</td>";
+                $tble_block += "<td class='text'><span data-toggle='tooltip' data-placement='top' title='"+msg.http_user_agent+"' >"+msg.http_user_agent+"</span></td>";
+                $tble_block += "<td>"+msg.request_time+"</td>";
+                $tble_block += "<td>"+msg.upstream_connect_time+"</td>";
+                $tble_block += "<td>"+msg.upstream_header_time+"</td>";
+                $tble_block += "<td>"+msg.upstream_response_time+"</td>";
+                $tble_block += "</tr>";
+                return $tble_block;
+            }
+
+        </script>   
+    <!--Footer scripts above this -->
+</body>
+</html>

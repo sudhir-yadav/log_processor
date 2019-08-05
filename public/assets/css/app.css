@@ -1,0 +1,83 @@
+#app{
+    font-family: Lato;
+    color:dimgrey;
+    overflow: hidden; 
+}
+
+#main-app {
+    height:100vh;
+}
+
+.app-utility-nav {
+    width:100px;
+    color:#fff !important;
+    overflow-x: hidden;
+    padding-top:15px;
+}
+
+.app-utility-nav .nav .nav-item {
+    display: block;
+    width: 100%;
+    border-radius: 6px 0 0 6px;
+    margin: 8px 0 0px 10px;
+}
+
+.active_list_item{
+    background: rgba(255,255,255,0.2);
+}
+
+.app-utility-nav .nav .nav-item .nav-link {
+    display:block;
+    white-space: nowrap; 
+     overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    text-align:center;
+    color:#fff;
+    padding: 20px;
+}
+
+.app-utility-nav .nav .nav-item .nav-link .la {
+    font-size:2em;
+    display: block;
+}
+
+.app-utility-nav .nav .nav-item .nav-link span {
+    font-size:.7em;
+    display:none;
+}
+
+.nav-site-list {
+    list-style-type: none;
+    padding: 0px;
+}
+
+.nav-site-list .active-item{
+    background: rgba(0,0,0,0.08);
+}
+
+.nav-site-list li {
+    padding: 12px;
+    border-radius: 25px;
+}
+
+.sidebar-site-list > li i {
+    font-size:25px;
+    float:left;
+    margin-right:5px;
+}
+
+.website-logo-brand {
+    width: 60px;
+        height: 60px;
+        float: left;
+        border-radius: 10px;
+        background: rgb(245, 170, 170);
+        margin: 0 25px;
+        text-align: center;
+        overflow: hidden;
+        line-height: 40px;
+        font-size: 40px;
+        color: #fff;
+        padding: 10px;
+}
